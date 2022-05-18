@@ -13,12 +13,12 @@ struct Org_node{
 class OrgChart{
     Org_node root;
     public:
-    OrgChart();
-    bool findNode(string &target,string &subTarget,Org_node & currentNode);
-    OrgChart & insertNode(string subTarget ,Org_node father);
-    friend ostream & operator<< (ostream &out, const OrgChart &c);
+//  OrgChart buliding functions:
+    OrgChart();    
     OrgChart &add_root(string role);
     OrgChart &add_sub(string father ,string s);
+    
+    //iterators:
     string* begin_level_order();
     string* begin_reverse_order();
     string* end_preorder();
@@ -27,6 +27,13 @@ class OrgChart{
     string* reverse_order();
     string* begin();
     string* end();
+
+// Auxiliary functions:
+    bool findNode(string &target,string &subTarget,Org_node & currentNode);
+    OrgChart & insertNode(string subTarget ,Org_node father);
+
+// orperators:
+    friend ostream & operator<< (ostream &out, const OrgChart &c);
 };
 
 };
